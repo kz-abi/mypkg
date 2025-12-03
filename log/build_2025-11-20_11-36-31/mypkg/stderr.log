@@ -1,5 +1,0 @@
-  File "/home/kz503/ros2_ws/install/mypkg/lib/python3.10/site-packages/mypkg/talker.py", line 19
-    def main()
-              ^
-SyntaxError: expected ':'
-

@@ -1,0 +1,10 @@
+# Python generated files
+__pycache__/
+*.pyc
+
+# ROS 2 build artifacts (relative to ros2_ws root)
+build/
+install/
+log/
+*.egg-info
+prefix_override/
