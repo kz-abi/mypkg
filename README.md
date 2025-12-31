@@ -1,5 +1,5 @@
-# mypkg
-![test](https://github.com/[GitHubのユーザー名]/mypkg/actions/workflows/test.yml/badge.svg)
+# PID制御シミュレータ
+![test](https://github.com/kz-abi/mypkg/actions/workflows/test.yml/badge.svg)
 
 PID制御シミュレータです。
 
