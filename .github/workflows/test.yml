@@ -3,11 +3,13 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-22.04
-    container: ryuichiueda/ubuntu22.04-ros2:latest
+    container: ros:humble-ros-base-jammy
     steps:
       - uses: actions/checkout@v2
-      - name: build and test
+      - name: Build and Test
         run: |
-          rsync -av ./ /root/ros2_ws/src/mypkg/
-          cd /root/ros2_ws
-          bash -xv ./src/mypkg/test/test.bash /root
+          source /opt/ros/humble/setup.bash
+          mkdir -p ~/ros2_ws/src
+          cp -r . ~/ros2_ws/src/mypkg
+          cd ~/ros2_ws/src/mypkg
+          bash -x test/test.bash
