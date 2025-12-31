@@ -24,7 +24,6 @@ class Plant(Node):
 
     def timer_cb(self):
         # 簡易的な物理モデル (一次遅れ系のような挙動)
-        # 入力値に近づこうとする動き
         self.val = self.prev_val + 0.1 * (self.input_val - self.prev_val)
         self.prev_val = self.val
 
