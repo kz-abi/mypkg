@@ -9,20 +9,25 @@ from std_msgs.msg import Float32
 class Controller(Node):
     def __init__(self):
         super().__init__('controller')
-        # 制御入力をパブリッシュ
         self.pub = self.create_publisher(Float32, 'control_input', 10)
-        # 現在の値をサブスクライブ
         self.create_subscription(Float32, 'current_val', self.cb, 10)
         
-        self.target = 50.0 # 目標値
-        self.p_gain = 2.0  # Pゲイン（比例ゲイン）
+        self.target = 50.0
+        self.p_gain = 2.0
+        self.i_gain = 0.02 
+        self.err_sum = 0.0
 
     def cb(self, msg):
         current_val = msg.data
         
-        # P制御（目標値との差分にゲインを掛ける）
+        # 偏差（目標 - 現在）を計算
         error = self.target - current_val
-        control_input = error * self.p_gain
+        
+        # 誤差を積分（蓄積）
+        self.err_sum += error
+
+        # P制御 + I制御
+        control_input = error * self.p_gain + self.err_sum * self.i_gain
 
         msg = Float32()
         msg.data = control_input
