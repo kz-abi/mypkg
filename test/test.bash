@@ -7,7 +7,7 @@ dir=~
 
 cd $dir/ros2_ws
 colcon build
-source $dir/.bashrc
+source /opt/ros/humble/setup.bash
 
 ros2 launch mypkg mypkg.launch.py > /dev/null 2>&1 &
 
