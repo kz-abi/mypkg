@@ -14,20 +14,27 @@ class Controller(Node):
         
         self.target = 50.0
         self.p_gain = 2.0
-        self.i_gain = 0.02 
+        self.i_gain = 0.02
+        self.d_gain = 0.2
         self.err_sum = 0.0
-
+        self.prev_error = 0.0
     def cb(self, msg):
         current_val = msg.data
         
-        # 偏差（目標 - 現在）を計算
         error = self.target - current_val
-        
-        # 誤差を積分（蓄積）
         self.err_sum += error
+        
+        d_term = error - self.prev_error
+        
+        # PID制御
+        control_input = (
+            error * self.p_gain + 
+            self.err_sum * self.i_gain + 
+            d_term * self.d_gain
+        )
 
-        # P制御 + I制御
-        control_input = error * self.p_gain + self.err_sum * self.i_gain
+        # 今回の誤差を「前回」として保存
+        self.prev_error = error
 
         msg = Float32()
         msg.data = control_input
