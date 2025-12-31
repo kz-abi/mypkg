@@ -3,8 +3,8 @@
 <package format="3">
   <name>mypkg</name>
   <version>0.0.0</version>
-  <description>robosys2025</description>
-  <maintainer email="mikazuki503@gmail.com">kz503</maintainer>
+  <description>A simple PID control simulator for ROS 2</description>
+  <maintainer email="mikazuki503@gmail.com">kz-abi</maintainer>
   <license>BSD-3-Clause</license>
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>

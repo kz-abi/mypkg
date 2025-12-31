@@ -16,9 +16,9 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='kz503',
+    maintainer='kz-abi',
     maintainer_email='mikazuki503@gmail.com',
-    description='robosys2025',
+    description='A simple PID control simulator for ROS 2',
     license='BSD-3-Clause',
     extras_require={
         'test': [
@@ -27,8 +27,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'talker = mypkg.talker:main',
-            'listener = mypkg.listener:main',
+
         ],
     },
 )
