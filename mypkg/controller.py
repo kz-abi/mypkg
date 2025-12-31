@@ -13,7 +13,7 @@ class Controller(Node):
         self.create_subscription(Float32, 'current_val', self.cb, 10)
         
         self.target = 50.0
-        self.p_gain = 2.0
+        self.p_gain = 6.0
         self.i_gain = 0.02
         self.d_gain = 0.2
         self.err_sum = 0.0
