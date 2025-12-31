@@ -7,9 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build and Test
+        shell: bash
         run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-colcon-common-extensions
+          apt-get update
+          apt-get install -y python3-colcon-common-extensions
           source /opt/ros/humble/setup.bash
           mkdir -p ~/ros2_ws/src
           cp -r . ~/ros2_ws/src/mypkg
