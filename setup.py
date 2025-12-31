@@ -27,7 +27,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-
+            'plant = mypkg.plant:main',
+            'controller = mypkg.controller:main',
         ],
     },
 )
