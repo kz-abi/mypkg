@@ -24,10 +24,15 @@ Launchファイルによる複数ノードの起動を実装しています。
   * コントローラからプラントへ送られる操作量です。
 
 ## 実行方法
-Launchファイルを使用して、制御対象（plant）とコントローラ（controller）を同時に起動します。
+1. Launchファイルを使用して、制御対象（plant）とコントローラ（controller）を同時に起動します。
 
 ```bash
-ros2 launch mypkg mypkg.launch.py
+$ ros2 launch mypkg mypkg.launch.py
+```
+
+2. 別の端末で以下のコマンドを実行することで、制御値が目標値（50.0）に向かって収束していく様子を確認できます。
+```bash
+$ ros2 topic echo /current_val
 ```
 
 ## テスト環境
@@ -39,7 +44,8 @@ GitHub Actionsを用い、以下の条件でテストを自動化しています
 
 ローカルでテストを実行する場合：
 ```bash
-bash test/test.bash
+$ cd test
+$ bash test.bash
 ```
 
 ## ライセンス
