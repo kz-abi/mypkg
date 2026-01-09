@@ -28,7 +28,8 @@ $ ros2 launch mypkg mypkg.launch.py
 以下のコマンドで、ノード間の通信とPID制御の収束を自動で検証できます。
 ```bash
 $ cd test
-$ bash ./test.bash
+$ chmod +x test.bash
+$ ./test.bash
 ```
 
 ## 実行環境
