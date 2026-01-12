@@ -6,16 +6,16 @@ ROS 2を用いた1次遅れ系プラントのPID制御シミュレータです�
 ## ノードと入出力
 ### `plant`
 1次遅れ系の物理モデルをシミュレートするノードです。
-* **Sub**: `/count_up` (`std_msgs/msg/Int16`)
+* **Sub**: `/count_up` (`std_msgs/msg/Float32`)
   * コントローラからの操作量を受け取ります。
-* **Pub**: `/current_val` (`std_msgs/msg/Int16`)
+* **Pub**: `/current_val` (`std_msgs/msg/Float32`)
   * 現在の状態量（出力値）を計算して送信します。
 
 ### `controller`
 PID制御を行うコントローラのノードです。
-* **Sub**: `/current_val` (`std_msgs/msg/Int16`)
+* **Sub**: `/current_val` (`std_msgs/msg/Float32`)
   * プラントの出力値を受け取ります。
-* **Pub**: `/count_up` (`std_msgs/msg/Int16`)
+* **Pub**: `/count_up` (`std_msgs/msg/Float32`)
   * 目標値（50.0）に近づけるための操作量を送信します。
 
 ## 実行方法
