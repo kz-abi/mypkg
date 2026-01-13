@@ -1,4 +1,4 @@
-# PID制御パッケージ (mypkg)
+# PID制御パッケージ
 ![test](https://github.com/kz-abi/mypkg/actions/workflows/test.yml/badge.svg)
 
 ROS 2を用いたPID制御パッケージです。
