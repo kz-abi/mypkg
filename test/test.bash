@@ -12,5 +12,4 @@ source $dir/ros2_ws/install/setup.bash
 timeout 15 ros2 launch mypkg mypkg.launch.py > /tmp/mypkg_log.txt
 
 # ログの中に期待する値が含まれているかチェック
-# (grepの戻り値がそのままスクリプトの終了コード)
 cat /tmp/mypkg_log.txt | grep 'Data: 49.0'
