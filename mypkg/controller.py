@@ -18,6 +18,7 @@ class Controller(Node):
         self.d_gain = 0.2
         self.err_sum = 0.0
         self.prev_error = 0.0
+
     def cb(self, msg):
         current_val = msg.data
         
