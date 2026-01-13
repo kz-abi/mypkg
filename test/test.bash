@@ -7,27 +7,10 @@ dir=~
 
 cd $dir/ros2_ws
 colcon build
-source $dir/ros2_ws/install/setup.bash 
+source $dir/ros2_ws/install/setup.bash
 
-#1. バックグラウンドでノードを起動
-ros2 launch mypkg mypkg.launch.py > /dev/null 2>&1 &
-PID=$! # プロセスIDを控える
+timeout 15 ros2 launch mypkg mypkg.launch.py > /tmp/mypkg_log.txt
 
-# 2. 起動待ち
-sleep 5
-
-# 3. トピックの値を15秒間監視してファイルに保存
-timeout 15 ros2 topic echo /current_val > /tmp/mypkg_log.txt
-
-# テスト終了後にノードをキルする
-kill $PID
-
-# 4. ログの中に "49.0" が含まれているかチェック
-if grep -q "49.0" /tmp/mypkg_log.txt; then
-    echo "Test Passed: Target 50.0 reached!"
-    exit 0
-else
-    echo "Test Failed: Target 50.0 not reached."
-    cat /tmp/mypkg_log.txt # ログの中身を表示（デバッグ用）
-    exit 1
-fi
+# ログの中に期待する値が含まれているかチェック
+# (grepの戻り値がそのままスクリプトの終了コード)
+cat /tmp/mypkg_log.txt | grep 'Data: 49.0'

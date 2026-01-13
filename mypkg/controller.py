@@ -14,7 +14,7 @@ class Controller(Node):
         
         self.target = 50.0
         self.p_gain = 6.0
-        self.i_gain = 0.02
+        self.i_gain = 0.08
         self.d_gain = 0.2
         self.err_sum = 0.0
         self.prev_error = 0.0
