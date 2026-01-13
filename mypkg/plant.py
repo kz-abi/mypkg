@@ -31,6 +31,8 @@ class Plant(Node):
         msg.data = self.val
         self.pub.publish(msg)
 
+        self.get_logger().info(f"Data: {self.val}")
+
 def main():
     rclpy.init()
     node = Plant()
